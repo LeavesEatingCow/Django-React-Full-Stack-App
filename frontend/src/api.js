@@ -4,9 +4,10 @@
 import axios from "axios";
 import { ACCESS_TOKEN } from "./constants";
 
+const apiUrl = "/choreo-apis/djangoreacttutorial/backend/v1"
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL  // Import anything thats specified in .env (Anything imported must start with VITE)
+  baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : apiUrl,  // Import anything thats specified in .env (Anything imported must start with VITE)
 });
 
 api.interceptors.request.use(
